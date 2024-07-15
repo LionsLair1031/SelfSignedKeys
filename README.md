@@ -1,5 +1,3 @@
-No, the storage location of the generated keys isn't mentioned in the current `README.md`. Here’s an updated version that includes this information:
-
 ```markdown
 # Self-Signed UEFI Keys Generator
 
