@@ -1,3 +1,5 @@
+No, the storage location of the generated keys isn't mentioned in the current `README.md`. Here’s an updated version that includes this information:
+
 ```markdown
 # Self-Signed UEFI Keys Generator
 
@@ -30,6 +32,12 @@ This project allows users to generate and configure their own Platform Key (PK),
    python3 __main__.py
    ```
 
+## Key Storage
+The generated keys are stored in the `SelfSignedKeys` directory located in your Documents folder:
+- **PK Key**: `~/Documents/SelfSignedKeys/PK.key`
+- **KEK Key**: `~/Documents/SelfSignedKeys/KEK.key`
+- **db Key**: `~/Documents/SelfSignedKeys/db.key`
+
 ## Steps to Enroll Keys in UEFI Secure Boot
 1. **Prepare the Environment**:
    - Ensure your system is configured to allow key enrollment. You might need to disable Secure Boot temporarily to make changes.
@@ -60,9 +68,7 @@ This project allows users to generate and configure their own Platform Key (PK),
 - [LionsLair1031](https://github.com/LionsLair1031)
 ```
 
-### Changes Made
-- Added backticks for code blocks to improve formatting.
-- Added periods for consistency in bullet points.
-- Ensured clear separation of commands and instructions.
+### Summary of Changes
+- Added a "Key Storage" section to clarify where the generated keys are saved.
 
-Feel free to use this version directly! If you need any more help or further adjustments, just let me know!
+Feel free to use this version! Let me know if you need any more adjustments.
