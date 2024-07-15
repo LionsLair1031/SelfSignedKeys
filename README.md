@@ -1,80 +1,97 @@
+Here's an updated version of your `README.md` that provides a clear, step-by-step guide for users, detailing the three-module process and including information on a final sub-script for future binary signing.
+
 ```markdown
 # Self-Signed UEFI Keys Generator
 
 ## Overview
-This project allows users to generate and configure their own Platform Key (PK), Key Exchange Key (KEK), and Signature Database (db) keys for UEFI Secure Boot. The script will prompt for necessary information to create and self-sign these keys, which can then be imported into the kernel.
+This project allows users to generate and configure their own Platform Key (PK), Key Exchange Key (KEK), and Signature Database (db) keys for UEFI Secure Boot. The script prompts for necessary information to create and self-sign these keys, which can then be imported into the kernel. This guide will help you navigate through the process of securing your operating system with UEFI Secure Boot.
 
 ## Features
-- Generates PK, KEK, and db keys.
-- Prompts for user input to customize key parameters.
-- Saves all keys and configuration files in a designated directory.
-- Additional key management functionality to relocate and encrypt keys.
+- **Key Generation**: Generate PK, KEK, and db keys.
+- **Key Management**: Relocate and encrypt keys for secure storage.
+- **Key Signing**: Sign the kernel and binaries to ensure they are trusted.
+- **Future Signing**: Easily sign additional binaries with a dedicated script.
 
 ## Requirements
 - Python 3.x
 - `openssl` installed on your system
 - `cryptography` library (install with `pip install cryptography`)
+- `sbsigntool` (install with `sudo apt install sbsigntool`)
 
 ## Usage
-1. Clone this repository:
-   ```bash
-   git clone https://github.com/LionsLair1031/SelfSignedKeys.git
-   ```
 
-2. Navigate to the directory:
-   ```bash
-   cd SelfSignedKeys
-   ```
+### Step 1: Clone the Repository
+Clone the repository to your local machine:
+```bash
+git clone https://github.com/LionsLair1031/SelfSignedKeys.git
+```
 
-3. Run the main script to generate keys:
-   ```bash
-   python3 __main__.py
-   ```
+### Step 2: Navigate to the Directory
+Change to the directory:
+```bash
+cd SelfSignedKeys
+```
 
-4. After generating the keys, run the key manager to relocate and encrypt the keys:
-   ```bash
-   python3 key_manager.py
-   ```
+### Step 3: Generate Keys
+Run the key generation script:
+```bash
+python3 __main__.py
+```
+Follow the prompts to generate your PK, KEK, and db keys.
 
-## Key Storage
-The generated keys are initially saved in the `SelfSignedKeys` directory located in your Documents folder:
-- **PK Key**: `~/Documents/SelfSignedKeys/PK.key`
-- **KEK Key**: `~/Documents/SelfSignedKeys/KEK.key`
-- **db Key**: `~/Documents/SelfSignedKeys/db.key`
+### Step 4: Relocate and Encrypt Keys
+After generating the keys, run the key management script to relocate and encrypt them:
+```bash
+python3 key_manager.py
+```
+You will be prompted to specify a secure storage location and create a password for encryption.
 
-After running the key manager, the keys will be securely stored in the user-specified directory.
+### Step 5: Sign the Kernel and Binaries
+Run the key signing script to sign the kernel and any necessary binaries:
+```bash
+python3 key_signer.py
+```
+Follow the prompts to enter the paths for your keys and the files you want to sign. The signed files will have a `.signed` extension.
 
-## Steps to Enroll Keys in UEFI Secure Boot
+### Step 6: Enroll the Keys in UEFI Secure Boot
 1. **Prepare the Environment**:
-   - Ensure your system is configured to allow key enrollment. You might need to disable Secure Boot temporarily to make changes.
+   - Ensure your system is configured to allow key enrollment. You might need to disable Secure Boot temporarily.
 
 2. **Access UEFI Firmware Settings**:
    - Restart your computer and enter the UEFI/BIOS setup (usually by pressing `F2`, `Delete`, or `Esc` during boot).
 
 3. **Navigate to Secure Boot Settings**:
-   - Look for "Secure Boot" options, typically found under "Boot," "Security," or "Authentication."
+   - Look for "Secure Boot" options under "Boot," "Security," or "Authentication."
 
 4. **Enroll the Keys**:
-   - Find the option to manage or enroll keys and select the option to add a new PK, KEK, and db.
-
-5. **Import the Keys**:
    - Use the generated key files (`PK.key`, `KEK.key`, `db.key`) from the secure storage location.
 
-6. **Save Changes and Exit**:
+5. **Save Changes and Exit**:
    - After enrolling the keys, save your changes before exiting the UEFI setup.
 
-7. **Re-enable Secure Boot**:
+6. **Re-enable Secure Boot**:
    - If you disabled Secure Boot, re-enable it.
 
-8. **Boot into Your Operating System**:
+7. **Boot into Your Operating System**:
    - If configured correctly, your system should boot normally with the new keys.
+
+## Future Binary Signing
+To easily sign additional binaries in the future, run the key signing script again:
+```bash
+python3 key_signer.py
+```
+This allows you to quickly sign any new binaries that need to be added to your Secure Boot configuration.
 
 ## Author
 - [LionsLair1031](https://github.com/LionsLair1031)
+
+## Summary
+This guide outlines the complete process from generating UEFI keys to signing and enrolling them, ensuring your operating system operates securely under UEFI Secure Boot. Follow each step to maintain a streamlined and efficient workflow.
 ```
 
-### Summary of Changes
-- Added instructions for the new `key_manager.py` script.
-- Clarified the key storage process after running the key manager.
+### Key Updates
+- **Structured Steps**: Clearly defined steps for each phase of the process.
+- **Future Binary Signing**: Included details on how to sign additional binaries easily.
+- **User-Friendly**: Simplified language and step-by-step instructions for clarity.
 
-Feel free to adjust any wording or details as needed! If you have further questions or requests, just let me know!
+Feel free to adjust any sections or add additional details as needed! If you have more requests, just let me know!
