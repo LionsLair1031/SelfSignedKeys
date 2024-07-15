@@ -1,5 +1,3 @@
-Here's an updated version of your `README.md` that provides a clear, step-by-step guide for users, detailing the three-module process and including information on a final sub-script for future binary signing.
-
 ```markdown
 # Self-Signed UEFI Keys Generator
 
