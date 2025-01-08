@@ -1,4 +1,3 @@
-```python
 import os
 import subprocess
 
@@ -50,22 +49,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-```
-
-### Explanation
-
-- **Directory Creation**: The script checks if the `SelfSignedKeys` directory exists in the user's Documents folder; if not, it creates it.
-- **User Prompts**: It collects necessary information for generating the keys.
-- **Key Generation**: Uses `openssl` to generate three self-signed keys (PK, KEK, and db) with the provided information.
-- **Main Function**: This is the entry point of the script, orchestrating the prompt and key generation.
-
-### Usage
-
-1. Save this script as `key_generator.py`.
-2. Run the script using Python:
-
-   ```bash
-   python3 key_generator.py
-   ```
-
-Let me know if you need any more modifications or additional features!
