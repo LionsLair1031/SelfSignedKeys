@@ -1,4 +1,3 @@
-```markdown
 # Self-Signed UEFI Keys Generator
 
 ## Overview
@@ -85,7 +84,6 @@ This allows you to quickly sign any new binaries that need to be added to your S
 
 ## Summary
 This guide outlines the complete process from generating UEFI keys to signing and enrolling them, ensuring your operating system operates securely under UEFI Secure Boot. Follow each step to maintain a streamlined and efficient workflow.
-```
 
 ### Key Updates
 - **Structured Steps**: Clearly defined steps for each phase of the process.
